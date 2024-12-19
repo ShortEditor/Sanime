@@ -1,0 +1,1156 @@
+/* Modern Netflix-like Theme */
+:root {
+    --primary-color: #e50914;
+    --primary-hover: #ff0f1a;
+    --background-dark: #141414;
+    --background-darker: #0f0f0f;
+    --text-light: #fff;
+    --text-muted: rgba(255, 255, 255, 0.7);
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Global Styles */
+body {
+    background: var(--background-dark);
+    color: var(--text-light);
+    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 100%);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: var(--background-darker);
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color) !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Featured Section */
+.featured-section {
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.featured-banner {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 100%;
+    height: 600px;
+}
+
+.featured-banner:hover {
+    transform: scale(1.02);
+}
+
+.featured-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.featured-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3rem;
+    background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, transparent 100%);
+    color: white;
+}
+
+.featured-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.featured-description {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.featured-stats {
+    display: flex;
+    gap: 2rem;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.featured-stats span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.featured-stats i {
+    color: #e50914;
+}
+
+.featured-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: #e50914;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.featured-button:hover {
+    background: #ff0f1a;
+    transform: scale(1.05);
+}
+
+.featured-button i {
+    font-size: 1.4rem;
+}
+
+/* Video Modal */
+.modal-xl {
+    max-width: 95vw;
+}
+
+.modal-content {
+    background: var(--background-darker) !important;
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.modal-header {
+    padding: 1.5rem 2rem;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+}
+
+.modal-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.modal-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+/* Video Player */
+.video-wrapper {
+    position: relative;
+    background: #000;
+    min-height: 85vh;
+}
+
+#customPlayer {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Episode List */
+.episode-list-container {
+    width: 360px;
+    background: rgba(20, 20, 20, 0.95);
+    border-left: 1px solid var(--border-color);
+    padding: 1.5rem;
+}
+
+.episode-list-container h6 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-left: 0.5rem;
+}
+
+#episodeList {
+    height: calc(85vh - 5rem);
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    display: grid;
+    gap: 1rem;
+}
+
+#episodeList::-webkit-scrollbar {
+    width: 4px;
+}
+
+#episodeList::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+}
+
+#episodeList::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 4px;
+}
+
+#episodeList::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.5);
+}
+
+#episodeList li {
+    transition: transform 0.3s ease;
+}
+
+#episodeList a {
+    position: relative;
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+#episodeList a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+#episodeList a.active {
+    box-shadow: 0 0 0 2px var(--primary-color), 0 5px 15px rgba(0,0,0,0.5);
+}
+
+#episodeList .episode-thumbnail {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+#episodeList a:hover .episode-thumbnail {
+    transform: scale(1.1);
+}
+
+#episodeList .episode-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    color: var(--text-light);
+    font-size: 1rem;
+    font-weight: 500;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+#episodeList a:hover .episode-title {
+    transform: translateY(0);
+}
+
+/* Video Controls */
+.video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-wrapper:hover .video-controls {
+    opacity: 1;
+}
+
+.video-controls button {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.2s ease;
+    opacity: 0.8;
+}
+
+.video-controls button:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    border-radius: 2px;
+    position: relative;
+}
+
+.progress-bar:hover {
+    height: 6px;
+}
+
+.progress-filled {
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 2px;
+    transition: width 0.1s linear;
+    position: relative;
+}
+
+.progress-filled::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.progress-bar:hover .progress-filled::after {
+    opacity: 1;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.volume-slider {
+    width: 80px;
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    border-radius: 2px;
+    position: relative;
+}
+
+.volume-filled {
+    height: 100%;
+    background: var(--text-light);
+    border-radius: 2px;
+    position: relative;
+}
+
+.time {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    min-width: 100px;
+    text-align: center;
+    font-family: monospace;
+}
+
+/* Hover effects */
+.play-pause:hover, .volume:hover, .fullscreen:hover {
+    color: #ff0000;
+}
+
+.progress-bar:hover .progress-filled {
+    height: 6px;
+    margin-top: -1px;
+}
+
+/* Fullscreen mode */
+.video-container.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+}
+
+.video-container.fullscreen video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Featured Section Styles */
+.featured-section {
+    margin-bottom: 2rem;
+}
+
+.featured-header {
+    margin-bottom: 1rem;
+}
+
+.featured-content {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.featured-content:hover {
+    transform: scale(1.02);
+}
+
+.featured-thumbnail {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.featured-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
+    color: white;
+}
+
+.featured-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.featured-description {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.featured-stats {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.featured-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    background: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.featured-button:hover {
+    background: #cc0000;
+}
+
+.featured-button i {
+    font-size: 1.2rem;
+}
+
+/* Modal Title Section */
+.modal-title-section {
+    flex: 1;
+}
+
+.modal-description {
+    margin: 0.5rem 0 0;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Video Modal Container */
+.video-modal-container {
+    display: flex;
+    height: 80vh;
+    background: #000;
+}
+
+.video-wrapper {
+    position: relative;
+    flex-grow: 1;
+    min-width: 0;
+}
+
+#customPlayer {
+    width: 100%;
+    height: 100%;
+    background: #000;
+}
+
+/* Episode List Container */
+.episode-list-container {
+    width: 320px;
+    flex-shrink: 0;
+    background: #141414;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.episode-list-container h6 {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    padding-left: 0.5rem;
+}
+
+#episodeList {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+#episodeList::-webkit-scrollbar {
+    width: 5px;
+}
+
+#episodeList::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+#episodeList::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+}
+
+#episodeList::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#episodeList li {
+    margin-bottom: 1rem;
+}
+
+#episodeList a {
+    display: block;
+    position: relative;
+    padding-top: 56.25%;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+#episodeList a:hover {
+    transform: scale(1.02);
+}
+
+#episodeList a.active {
+    box-shadow: 0 0 0 2px #ff0000;
+}
+
+#episodeList .episode-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#episodeList .episode-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.75rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    color: #fff;
+    font-size: 0.9rem;
+    line-height: 1.2;
+}
+
+/* Video Controls */
+.video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-wrapper:hover .video-controls {
+    opacity: 1;
+}
+
+.bg-dark {
+    background-color: #141414 !important;
+}
+
+.featured-section {
+    margin-bottom: 2rem;
+}
+
+.featured-banner {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.featured-banner:hover {
+    transform: scale(1.02);
+}
+
+.featured-thumbnail {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.featured-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    color: white;
+}
+
+.featured-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.featured-description {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.featured-stats {
+    display: flex;
+    gap: 1rem;
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+.featured-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: #e50914;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.featured-button:hover {
+    background: #ff0f1a;
+}
+
+.featured-button i {
+    font-size: 1.2rem;
+}
+
+.modal-xl {
+    max-width: 90vw;
+}
+
+.modal-content {
+    background: #141414 !important;
+    border: none;
+}
+
+.modal-header {
+    padding: 1rem 1.5rem;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-description {
+    margin: 0;
+    opacity: 0.7;
+}
+
+.video-wrapper {
+    position: relative;
+    background: #000;
+    min-height: 80vh;
+}
+
+#customPlayer {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.episode-list-container {
+    width: 320px;
+    background: #1a1a1a;
+    border-left: 1px solid rgba(255,255,255,0.1);
+    padding: 1rem;
+}
+
+.episode-list-container h6 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+}
+
+#episodeList {
+    height: calc(80vh - 4rem);
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+#episodeList::-webkit-scrollbar {
+    width: 5px;
+}
+
+#episodeList::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+}
+
+#episodeList::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 5px;
+}
+
+#episodeList li {
+    margin-bottom: 1rem;
+}
+
+#episodeList a {
+    display: block;
+    position: relative;
+    padding-top: 56.25%;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+#episodeList a:hover {
+    transform: scale(1.05);
+}
+
+#episodeList a.active {
+    box-shadow: 0 0 0 2px #e50914;
+}
+
+#episodeList .episode-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#episodeList .episode-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.5rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-wrapper:hover .video-controls {
+    opacity: 1;
+}
+
+.video-controls button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.video-controls button:hover {
+    transform: scale(1.1);
+}
+
+.progress-bar {
+    flex-grow: 1;
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.progress-filled {
+    width: 0;
+    height: 100%;
+    background: #e50914;
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.volume-slider {
+    width: 60px;
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.volume-filled {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 2px;
+}
+
+.time {
+    color: white;
+    font-size: 0.9rem;
+    min-width: 100px;
+    text-align: center;
+}
+
+/* Adjust video container for the new layout */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background: #000;
+}
+
+.video-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Modal adjustments */
+.modal-xl .modal-content {
+    background: #0a0a0a;
+}
+
+.modal-header {
+    background: #1a1a1a;
+    border-bottom: 1px solid #333;
+}
+
+.modal-title {
+    color: white;
+}
+
+.btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Video Player Styles */
+.video-container {
+    position: relative;
+    width: 100%;
+    background: #000;
+    overflow: hidden;
+}
+
+.video-player {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+}
+
+.video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.video-container:hover .video-controls {
+    opacity: 1;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    margin-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress-filled {
+    width: 0;
+    height: 100%;
+    background: #ff0000;
+    position: absolute;
+    transition: width 0.1s;
+}
+
+.controls-main {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.play-pause, .volume, .fullscreen {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.time {
+    color: white;
+    font-size: 0.9rem;
+    margin-left: 10px;
+}
+
+.volume-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.volume-slider {
+    width: 0;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: width 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.volume-container:hover .volume-slider {
+    width: 100px;
+}
+
+.volume-filled {
+    width: 100%;
+    height: 100%;
+    background: white;
+    position: absolute;
+}
+
+/* Hover effects */
+.play-pause:hover, .volume:hover, .fullscreen:hover {
+    color: #ff0000;
+}
+
+.progress-bar:hover .progress-filled {
+    height: 6px;
+    margin-top: -1px;
+}
+
+/* Fullscreen mode */
+.video-container.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+}
+
+.video-container.fullscreen video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Featured Section Styles */
+.featured-section {
+    margin-bottom: 2rem;
+}
+
+.featured-header {
+    margin-bottom: 1rem;
+}
+
+.featured-content {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.featured-content:hover {
+    transform: scale(1.02);
+}
+
+.featured-thumbnail {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.featured-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
+    color: white;
+}
+
+.featured-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.featured-description {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.featured-stats {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.featured-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    background: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.featured-button:hover {
+    background: #cc0000;
+}
+
+.featured-button i {
+    font-size: 1.2rem;
+}
+
+/* Modal Title Section */
+.modal-title-section {
+    flex: 1;
+}
+
+.modal-description {
+    margin: 0.5rem 0 0;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Video Modal Container */
+.video-modal-container {
+    display: flex;
+    height: 80vh;
+    background: #000;
+}
+
+.video-wrapper {
+    position: relative;
+    flex-grow: 1;
+    min-width: 0;
+}
+
+#customPlayer {
+    width: 100%;
+    height: 100%;
+    background: #000;
+}
+
+/* Episode List Container */
+.episode-list-container {
+    width: 320px;
+    flex-shrink: 0;
+    background: #141414;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.episode-list-container h6 {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    padding-left: 0.5rem;
+}
+
+#episodeList {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+#episodeList::-webkit-scrollb
