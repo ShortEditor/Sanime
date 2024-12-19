@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeHub - Watch Demon Slayer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-dark text-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">AnimeHub</a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- Featured Section -->
+        <div class="featured-section">
+            <div class="featured-banner" data-bs-toggle="modal" data-bs-target="#videoModal">
+                <img src="https://i.postimg.cc/tJLf9kTL/demon-slayer-swordsmith-village-arc-premiere-date.jpg" alt="Demon Slayer: Swordsmith Village Arc" class="featured-thumbnail">
+                <div class="featured-info">
+                    <h1 class="featured-title">Demon Slayer: Kimetsu no Yaiba</h1>
+                    <p class="featured-description">Swordsmith Village Arc - Follow Tanjiro's journey as he joins forces with the Love and Mist Hashira to protect the Swordsmith Village from powerful demons.</p>
+                    <div class="featured-stats">
+                        <span><i class="fas fa-star"></i> 9.5/10</span>
+                        <span><i class="fas fa-clock"></i> 11 Episodes</span>
+                        <span><i class="fas fa-closed-captioning"></i> Subbed</span>
+                    </div>
+                    <button class="featured-button">
+                        <i class="fas fa-play"></i>
+                        Watch Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Modal -->
+        <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title-section">
+                            <h5 class="modal-title">Demon Slayer: Swordsmith Village Arc</h5>
+                            <p class="modal-description">Season 3 - Episode 1</p>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-0">
+                        <div class="video-modal-container">
+                            <div class="video-wrapper">
+                                <video id="customPlayer" preload="metadata" poster="https://i.postimg.cc/tJLf9kTL/demon-slayer-swordsmith-village-arc-premiere-date.jpg">
+                                    <source src="https://s1.secunduscdn.xyz/prime/KimetsuNoYaibaSwordsmithVillageArc/Kimetsu No Yaiba - Katanakaji No Sato-Hen - 01.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="video-controls">
+                                    <button class="play-pause">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <div class="progress-bar">
+                                        <div class="progress-filled"></div>
+                                    </div>
+                                    <div class="time">
+                                        <span class="current">0:00</span>
+                                        /
+                                        <span class="duration">0:00</span>
+                                    </div>
+                                    <button class="volume">
+                                        <i class="fas fa-volume-up"></i>
+                                    </button>
+                                    <div class="volume-slider">
+                                        <div class="volume-filled"></div>
+                                    </div>
+                                    <button class="fullscreen">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="episode-list-container">
+                                <h6>Episodes</h6>
+                                <ul id="episodeList" class="list-unstyled">
+                                    <li>
+                                        <a href="#" class="episode-link active" data-episode="1" data-video="https://s1.secunduscdn.xyz/prime/KimetsuNoYaibaSwordsmithVillageArc/Kimetsu No Yaiba - Katanakaji No Sato-Hen - 01.mp4">
+                                            <img src="https://i.postimg.cc/tJLf9kTL/demon-slayer-swordsmith-village-arc-premiere-date.jpg" alt="Episode 1" class="episode-thumbnail">
+                                            <span class="episode-title">Episode 1 - The Swordsmith Village</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="episode-link" data-episode="2" data-video="https://s1.secunduscdn.xyz/prime/KimetsuNoYaibaSwordsmithVillageArc/Kimetsu No Yaiba - Katanakaji No Sato-Hen - 02.mp4">
+                                            <img src="https://i.postimg.cc/tJLf9kTL/demon-slayer-swordsmith-village-arc-premiere-date.jpg" alt="Episode 2" class="episode-thumbnail">
+                                            <span class="episode-title">Episode 2 - The Mist Hashira, Muichiro Tokito</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="episode-link" data-episode="3" data-video="https://s1.secunduscdn.xyz/prime/KimetsuNoYaibaSwordsmithVillageArc/Kimetsu No Yaiba - Katanakaji No Sato-Hen - 03.mp4">
+                                            <img src="https://i.postimg.cc/tJLf9kTL/demon-slayer-swordsmith-village-arc-premiere-date.jpg" alt="Episode 3" class="episode-thumbnail">
+                                            <span class="episode-title">Episode 3 - Confronting the Upper Rank</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="episode-link" data-episode="4" data-video="https://s1.secunduscdn.xyz/prime/KimetsuNoYaibaSwordsmithVillageArc/Kimetsu No Yaiba - Katanakaji No Sato-Hen - 04.mp4">
+                                            <img src="https://i.postimg.cc/tJLf9kTL/demon-slayer-swordsmith-village-arc-premiere-date.jpg" alt="Episode 4" class="episode-thumbnail">
+                                            <span class="episode-title">Episode 4 - Battle in the Village</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="episode-link" data-episode="5" data-video="https://s1.secunduscdn.xyz/prime/KimetsuNoYaibaSwordsmithVillageArc/Kimetsu No Yaiba - Katanakaji No Sato-Hen - 05.mp4">
+                                            <img src="https://i.postimg.cc/tJLf9kTL/demon-slayer-swordsmith-village-arc-premiere-date.jpg" alt="Episode 5" class="episode-thumbnail">
+                                            <span class="episode-title">Episode 5 - Love Hashira Joins the Fight</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="episode-link" data-episode="6" data-video="https://s1.secunduscdn.xyz/prime/KimetsuNoYaibaSwordsmithVillageArc/Kimetsu No Yaiba - Katanakaji No Sato-Hen - 06.mp4">
+                                            <img src="https://i.postimg.cc/tJLf9kTL/demon-slayer-swordsmith-village-arc-premiere-date.jpg" alt="Episode 6" class="episode-thumbnail">
+                                            <span class="episode-title">Episode 6 - Fierce Combat</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="episode-link" data-episode="7" data-video="https://s1.secunduscdn.xyz/prime/KimetsuNoYaibaSwordsmithVillageArc/Kimetsu No Yaiba - Katanakaji No Sato-Hen - 07.mp4">
+                                            <img src="https://i.postimg.cc/tJLf9kTL/demon-slayer-swordsmith-village-arc-premiere-date.jpg" alt="Episode 7" class="episode-thumbnail">
+                                            <span class="episode-title">Episode 7 - The Power of the Hashira</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="episode-link" data-episode="8" data-video="https://s1.secunduscdn.xyz/prime/KimetsuNoYaibaSwordsmithVillageArc/Kimetsu No Yaiba - Katanakaji No Sato-Hen - 08.mp4">
+                                            <img src="https://i.postimg.cc/tJLf9kTL/demon-slayer-swordsmith-village-arc-premiere-date.jpg" alt="Episode 8" class="episode-thumbnail">
+                                            <span class="episode-title">Episode 8 - Tanjiro's Resolve</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="episode-link" data-episode="9" data-video="https://s1.secunduscdn.xyz/prime/KimetsuNoYaibaSwordsmithVillageArc/Kimetsu No Yaiba - Katanakaji No Sato-Hen - 09.mp4">
+                                            <img src="https://i.postimg.cc/tJLf9kTL/demon-slayer-swordsmith-village-arc-premiere-date.jpg" alt="Episode 9" class="episode-thumbnail">
+                                            <span class="episode-title">Episode 9 - The Final Clash</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="episode-link" data-episode="10" data-video="https://s1.secunduscdn.xyz/prime/KimetsuNoYaibaSwordsmithVillageArc/Kimetsu No Yaiba - Katanakaji No Sato-Hen - 10.mp4">
+                                            <img src="https://i.postimg.cc/tJLf9kTL/demon-slayer-swordsmith-village-arc-premiere-date.jpg" alt="Episode 10" class="episode-thumbnail">
+                                            <span class="episode-title">Episode 10 - Victory and Aftermath</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="episode-link" data-episode="11" data-video="https://s1.secunduscdn.xyz/prime/KimetsuNoYaibaSwordsmithVillageArc/Kimetsu No Yaiba - Katanakaji No Sato-Hen - 11.mp4">
+                                            <img src="https://i.postimg.cc/tJLf9kTL/demon-slayer-swordsmith-village-arc-premiere-date.jpg" alt="Episode 11" class="episode-thumbnail">
+                                            <span class="episode-title">Episode 11 - A New Journey Begins</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
